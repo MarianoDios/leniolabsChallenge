@@ -1,8 +1,8 @@
-import React, {PureComponent} from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
-import {Col, FormControl, InputGroup, Row} from 'react-bootstrap';
-import {filterCongressRequested, requestCongress} from '../actions/congress';
+import { connect } from 'react-redux';
+import { Col, FormControl, InputGroup, Row } from 'react-bootstrap';
+import { filterCongressRequested, requestCongress } from '../actions/congress';
 import Congress from './Congress';
 
 class Home extends PureComponent {
@@ -17,13 +17,6 @@ class Home extends PureComponent {
         loading: true
     };
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            congress: this.props.congress
-        }
-    }
-
     componentDidMount() {
         this.props.requestCongress();
     }
@@ -33,7 +26,7 @@ class Home extends PureComponent {
     };
 
     render() {
-        const {congress} = this.props;
+        const { congress } = this.props;
 
         return (
             <>
