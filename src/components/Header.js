@@ -6,7 +6,7 @@ const Header = () => {
     return (
         <Row className="header">
             <Col sm={12}>
-                <h3 className="headerText">Header</h3>
+                <h3 className="headerText">Congress list</h3>
             </Col>
         </Row>
     );
