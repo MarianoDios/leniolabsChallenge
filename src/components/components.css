@@ -1,11 +1,12 @@
 .header{
-    background-color: #1E90FF;
+    /* background-color: #1E90FF; */
+    background-image: linear-gradient(to right, #1E90FF,#66ffcc);
     height: 8rem;
     margin-bottom: 1rem;
 }
 
 .footer{
-    background-color: #1E90FF;
+    background-image: linear-gradient(to right, #1E90FF,#66ffcc);
     margin-top: 1rem;
 }
 
@@ -16,4 +17,9 @@
 .footer{
     height: 6rem;
     padding-top: 1.5rem;
+}
+.headerText{
+    color: white;
+}
+.container{
 }
