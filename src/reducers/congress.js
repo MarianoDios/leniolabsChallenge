@@ -1,4 +1,4 @@
-import { filter, lowerCase } from 'lodash';
+import { filter } from 'lodash';
 import {
     CONGRESS_FETCH_REQUESTED,
     CONGRESS_FETCH_SUCCEEDED,

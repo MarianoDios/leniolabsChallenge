@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Col, FormControl, InputGroup, Row } from 'react-bootstrap';
 import { filterCongressRequested, requestCongress } from '../actions/congress';
 import AdvancedFilters from './AdvancedFilter';
-import Congress from './Congress';
+import Congress from './CongressTable';
 import './components.css';
 
 class Home extends PureComponent {

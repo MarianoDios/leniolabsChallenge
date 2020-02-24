@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Button, Collapse, Col, FormControl, InputGroup, Row } from 'react-bootstrap';
+import { Button, Collapse, FormControl, InputGroup } from 'react-bootstrap';
 import { filterCongressByNameRequested, filterCongressByPartyRequested, filterCongressByGenderRequested, requestCongress } from '../actions/congress';
 
 class AdvancedFilters extends Component {
@@ -41,6 +41,17 @@ class AdvancedFilters extends Component {
         );
     }
 
+    renderNameFilter = () => {
+        return (
+            <InputGroup className="mb-3">
+                <InputGroup.Prepend>
+                    <InputGroup.Text id="inputGroup-sizing-default">Filter by Name</InputGroup.Text>
+                </InputGroup.Prepend>
+                <FormControl placeholder="By name, gender or party" name="filter" onChange={e => this.props.filterCongressByNameRequested(e.target.value)} aria-label="Default" />
+            </InputGroup>
+        );
+    }
+
     render() {
         return (
             <>
@@ -53,12 +64,7 @@ class AdvancedFilters extends Component {
                 </Button>
                 <Collapse in={this.state.toggle}>
                     <div>
-                        <InputGroup className="mb-3">
-                            <InputGroup.Prepend>
-                                <InputGroup.Text id="inputGroup-sizing-default">Filter by Name</InputGroup.Text>
-                            </InputGroup.Prepend>
-                            <FormControl placeholder="By name, gender or party" name="filter" onChange={e => this.props.filterCongressByNameRequested(e.target.value)} aria-label="Default" />
-                        </InputGroup>
+                        {this.renderNameFilter()}
                         {this.renderPartyFilter()}
                         {this.renderGenderFilter()}
                     </div>
