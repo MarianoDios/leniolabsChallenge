@@ -1,14 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { Col, Row, Button } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import { getCongresman } from "../actions/congress";
 import "./components.css";
 
 class CongressDetails extends React.PureComponent {
   static propTypes = {
     congressMan: PropTypes.shape({}).isRequired,
-    getCongresman: PropTypes.func.isRequired,
+    getCongresMan: PropTypes.func.isRequired,
     id: PropTypes.string.isRequired
   };
 
@@ -16,43 +16,33 @@ class CongressDetails extends React.PureComponent {
     const { id } = this.props.match.params;
     this.props.getCongresman(id);
   }
+
   render() {
-      const {congressMan} = this.props;
-      console.log(congressMan);
+    const {congressMan} = this.props;
+    let congressmanComponent;
+    console.log(congressMan);
+    if (congressMan) {
+      congressmanComponent = (
+          <Row className="container">
+            <Col sm={6}>
+              Name: {congressMan.first_name} {congressMan.last_name}
+              <br />
+              Date of birth: {congressMan.date_of_birth}
+              <br />
+              Current pary: {congressMan.current_party}
+              <br />
+              <a href={`https://www.twitter.com/${congressMan.twitter_account}`}>Twitter account</a>
+            </Col>
+          </Row>
+      )
+    }
+
     return (
-      <>
-      aaa
-        {/* <Row className="container">
-          <Col sm={2}>
-            <h5>Name</h5>
-          </Col>
-          <Col sm={2}>
-            <h5>Title</h5>
-          </Col>
-          <Col sm={1}>
-            <h5>Gender</h5>
-          </Col>
-          <Col sm={1}>
-            <h5>Party</h5>
-          </Col>
-          <Col sm={2}>
-            <h5>Twitter</h5>
-          </Col>
-        </Row>
-        <Row className="container">
-          <Col sm={2}>
-            {congressMan.first_name} {congressMan.last_name}
-          </Col>
-          <Col sm={2}>{congressMan.title}</Col>
-          <Col sm={1}>{congressMan.gender}</Col>
-          <Col sm={1}>{congressMan.party}</Col>
-          <Col sm={2}>
-            <a href={`www.twitter.com/${congressMan.twitter_account}`}></a>
-          </Col>
-        </Row> */}
-      </>
-    );
-  }
+        <>
+          {congressmanComponent}
+        </>
+  );
+}
 }
 
 export default connect(

@@ -21,8 +21,7 @@ export function* fetchCongressman({id}) {
     console.log('sagas', id);
     try {
         const congressman = yield call(CongressService.getPerson, id);
-        console.log(congressman);
-        yield put(receiveCongresman(congressman));
+        yield put(receiveCongresman(congressman.results[0]));
     } catch (err) {
         yield put(handleError(err));
     }
