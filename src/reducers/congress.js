@@ -6,7 +6,7 @@ import {
     FILTER_CONGRESS_NAME_REQUESTED,
     FILTER_CONGRESS_PARTY_REQUESTED,
     FILTER_CONGRESS_GENDER_REQUESTED,
-
+    FILTER_CONGRESS_BY_ID_REQUESTED,
 } from '../actions/congress';
 
 import {
@@ -52,10 +52,6 @@ const filterCongressByGender = (value, congress) => {
     return newCongress;
 }
 
-// TODO:
-// TODO: combine reducers RESEARCH MUY MUCHO IMPORTANTE
-// TODO: 
-
 export default function congress(state = { loading: false, error: false }, action) {
     switch (action.type) {
         case CONGRESS_FETCH_REQUESTED:
@@ -70,6 +66,9 @@ export default function congress(state = { loading: false, error: false }, actio
             return { ...state, congress: action.value ? filterCongressByParty(action.value, state.originalCongress) : state.originalCongress, loading: false, error: false };
         case FILTER_CONGRESS_GENDER_REQUESTED:
             return { ...state, congress: action.value ? filterCongressByGender(action.value, state.originalCongress) : state.originalCongress, loading: false, error: false };
+        case FILTER_CONGRESS_BY_ID_REQUESTED:
+            console.log(action.id, state);
+            return { ...state, congressman: action.congressman, loading: false, error: false };
         case ERROR_OCCURRED:
             return { ...state, error: true, loading: false };
 

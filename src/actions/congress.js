@@ -4,6 +4,8 @@ export const FILTER_CONGRESS_REQUESTED = 'FILTER_CONGRESS_REQUESTED';
 export const FILTER_CONGRESS_NAME_REQUESTED = 'FILTER_CONGRESS_NAME_REQUESTED';
 export const FILTER_CONGRESS_PARTY_REQUESTED = 'FILTER_CONGRESS_PARTY_REQUESTED';
 export const FILTER_CONGRESS_GENDER_REQUESTED = 'FILTER_CONGRESS_GENDER_REQUESTED';
+export const FILTER_CONGRESS_BY_ID_REQUESTED = 'FILTER_CONGRESS_BY_ID_REQUESTED';
+export const FILTER_CONGRESS_BY_ID_RECEIVED = 'FILTER_CONGRESS_BY_ID_RECEIVED';
 
 export const receiveCongress = congress => ({
     type: CONGRESS_FETCH_SUCCEEDED,
@@ -32,4 +34,14 @@ export const filterCongressByPartyRequested = value => ({
 export const filterCongressByGenderRequested = value => ({
     type: FILTER_CONGRESS_GENDER_REQUESTED,
     value
+});
+
+export const getCongresman = id => ({
+    type: FILTER_CONGRESS_BY_ID_REQUESTED,
+    id
+});
+
+export const receiveCongresman = congressman => ({
+    type: FILTER_CONGRESS_BY_ID_RECEIVED,
+    congressman
 });

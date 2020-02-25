@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Col, Row } from 'react-bootstrap';
+import { Col, Row, Button } from 'react-bootstrap';
 import './components.css';
 
 const Congress = ({ congress }) => {
@@ -14,6 +14,9 @@ const Congress = ({ congress }) => {
             </Col>
             <Col sm={1}>
                 {congress.party}
+            </Col>
+            <Col sm={1}>
+                <Button onClick={() => {console.log(congress)}}className="info"> ...Details</Button>
             </Col>
         </Row>
     );

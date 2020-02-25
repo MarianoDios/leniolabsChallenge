@@ -4,6 +4,7 @@ import React, {Fragment} from 'react';
 import Footer from './Footer';
 import Header from './Header';
 import Home from './Home';
+import CongressDetails from './CongressmanDetails';
 
 const MainRoutes = () => (
     <HashRouter>
@@ -12,7 +13,7 @@ const MainRoutes = () => (
             <main>
                 <Switch>
                     <Route exact path="/" component={Home}/>
-                    <Route exact path="/details:id" component={Home}/>
+                    <Route exact path="/details/:id" component={CongressDetails}/>
                 </Switch>
             </main>
             <Footer/>
